@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="global.sesoc.sebank.dao.BankDAO">
+	<select id="findList" resultType="GuestBook">
+		select num, name, password, content, inputdate 
+		from guest_book 
+		order by inputdate desc
+	</select>
+	<select id="findOne" resultType="GuestBook">
+		select * from guest_book
+		where num=#{0} and password=#{1}
+	</select>
+	<insert id="insert" parameterType="GuestBook">
+		insert into guest_book
+		(num, name, password, content)
+		values(guest_book_seq.nextval, #{name}, #{password}, #{content})
+	</insert>
+	<update id="update" parameterType="GuestBook">
+		update guest_book
+		set password=#{password}, content=#{content}, inputdate=sysdate
+		where num=#{num}
+	</update>
+	<delete id="delete">
+		delete guest_book
+		where num=#{0} and password=#{1}
+	</delete>
+</mapper>
