@@ -4,11 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="global.sesoc.sebank.vo.Member" alias="Member" />
-		<typeAlias type="global.sesoc.sebank.vo.Board" alias="Board" />
-		<typeAlias type="global.sesoc.sebank.vo.Reply" alias="Reply" />
+		<typeAlias type="global.sesoc.sebank.vo.Customer" alias="Customer" />
 	</typeAliases>
 	<mappers>
-		<mapper resource="mappers/bankMapper.xml" />
+		<mapper resource="mappers/customerMapper.xml" />
 	</mappers>
 </configuration>

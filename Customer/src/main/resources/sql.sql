@@ -29,3 +29,5 @@ create table reply
 );
 
 create squence reply_seq;
+
+select * from customer;

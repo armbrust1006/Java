@@ -1,9 +1,13 @@
 @CHARSET "UTF-8";
 
-th {
-	background-color: gray;
+td {
+	background-color: #3399ff;
 }
 
-td {
-	background-color: gray;
+th {
+	background-color: #99ccff;
+}
+
+input[type=text] {
+	background-color: #e6f2ff;
 }

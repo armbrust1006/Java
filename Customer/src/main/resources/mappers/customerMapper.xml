@@ -2,29 +2,35 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-<mapper namespace="global.sesoc.sebank.dao.BankDAO">
-	<select id="findList" resultType="GuestBook">
-		select num, name, password, content, inputdate 
-		from guest_book 
-		order by inputdate desc
+
+<mapper namespace="global.sesoc.sebank.dao.CustomerDAO">
+	<select id="login" resultType="Customer" parameterType="Customer">
+		select custid, name
+		from customer
+		where custid=#{custid} and password=#{password}
 	</select>
-	<select id="findOne" resultType="GuestBook">
-		select * from guest_book
-		where num=#{0} and password=#{1}
+	<select id="idCheck" resultType="String" parameterType="String">
+		select custid
+		from customer
+		where custid=#{custid}
 	</select>
-	<insert id="insert" parameterType="GuestBook">
-		insert into guest_book
-		(num, name, password, content)
-		values(guest_book_seq.nextval, #{name}, #{password}, #{content})
+	<insert id="insert" parameterType="Customer">
+		insert into customer
+		values
+		(
+		#{custid}, #{password}, #{name},
+		#{email}, #{division}, #{idno}, #{address}
+		)
 	</insert>
-	<update id="update" parameterType="GuestBook">
-		update guest_book
-		set password=#{password}, content=#{content}, inputdate=sysdate
-		where num=#{num}
+	<select id="updateSelect" resultType="Customer" parameterType="String">
+		select custid, name, email, division, idno, address
+		from customer
+		where custid=#{custid}
+	</select>
+	<update id="update" parameterType="Customer">
+		update customer
+		set password=#{password}, name=#{name}, email=#{email},
+			division=#{division}, idno=#{idno}, address=#{address}
+		where custid=#{custid} and password=#{password}
 	</update>
-	<delete id="delete">
-		delete guest_book
-		where num=#{0} and password=#{1}
-	</delete>
 </mapper>
