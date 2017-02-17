@@ -5,8 +5,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="global.sesoc.sebank.vo.Customer" alias="Customer" />
+		<typeAlias type="global.sesoc.sebank.vo.Board" alias="Board" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/customerMapper.xml" />
+		<mapper resource="mappers/boardMapper.xml" />
 	</mappers>
 </configuration>

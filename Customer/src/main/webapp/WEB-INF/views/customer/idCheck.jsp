@@ -5,23 +5,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script type="text/javascript">
-	function idSelect(id) {
-		opener.document.getElementById("custid").value = id;
-		this.close();
-	}
-</script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/scripts/jsfile.js"></script>
 <title>ID Checks</title>
 </head>
 <body>
 	<div>
-		<form action="idCheck" method="post">
-			<input type="text" name="custid" value="${id}"> <input
+		<form action="idCheck" method="post" onsubmit="return idCheck()">
+			<input type="text" name="custid" id="custid" value="${id}"> <input
 				type="submit" value="ID 체크" placeholder="ID 입력">
 		</form>
 		<c:if test="${check}">
 			<c:choose>
-				<c:when test="${not empty id}">
+				<c:when test="${choice}">
 					<c:out value="사용 가능한 아이디 입니다."></c:out>
 					<input type="button" value="사용하기" onclick="idSelect('${id}')">
 				</c:when>

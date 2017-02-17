@@ -31,3 +31,4 @@ create table reply
 create squence reply_seq;
 
 select * from customer;
+select * from board;

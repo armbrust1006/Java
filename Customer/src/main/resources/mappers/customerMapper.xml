@@ -17,7 +17,7 @@
 	<insert id="insert" parameterType="Customer">
 		insert into customer
 		values
-		(
+		('
 		#{custid}, #{password}, #{name},
 		#{email}, #{division}, #{idno}, #{address}
 		)

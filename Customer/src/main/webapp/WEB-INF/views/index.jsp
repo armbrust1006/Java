@@ -5,10 +5,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/scripts/jsfile.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
 <title>index</title>
 </head>
 <body>
-	<div>
+	<c:if test="${not empty errorMsg}">
+		<script type="text/javascript">
+			alert('${errorMsg}');
+		</script>
+	</c:if>
+	<div id="index">
 		<h1>[ Spring Web 5 - SE Bank Step 4 ]</h1>
 		<c:if test="${not empty sessionScope.loginId}">
 			<hr>
@@ -21,15 +30,15 @@
 		<ul>
 			<c:choose>
 				<c:when test="${empty loginId}">
-					<li><a href="join">회원가입</a></li>
-					<li><a href="login">로그인</a></li>
+					<li><a href="customer/join">회원가입</a></li>
+					<li><a href="customer/login">로그인</a></li>
 				</c:when>
 				<c:when test="${not empty loginId}">
-					<li><a href="logout">로그아웃</a></li>
-					<li><a href="update">개인정보 수정</a></li>
+					<li><a href="customer/logout">로그아웃</a></li>
+					<li><a href="customer/update">개인정보 수정</a></li>
 				</c:when>
 			</c:choose>
-			<li><a href="board">게시판</a></li>
+			<li><a href="board/list">게시판</a></li>
 		</ul>
 	</div>
 </body>

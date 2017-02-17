@@ -5,12 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script type="text/javascript" src="resources/scripts/jsfile.js"></script>
-<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/scripts/jsfile.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
 <title>JoinForm</title>
 </head>
 <body>
-	<div align="center">
+	<div id="update" align="center">
 		<form action="update" method="post" onsubmit="return updateCheck()">
 			<table border="1">
 				<tr>
