@@ -6,9 +6,11 @@
 	<typeAliases>
 		<typeAlias type="global.sesoc.sebank.vo.Customer" alias="Customer" />
 		<typeAlias type="global.sesoc.sebank.vo.Board" alias="Board" />
+		<typeAlias type="global.sesoc.sebank.vo.Reply" alias="Reply" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/customerMapper.xml" />
 		<mapper resource="mappers/boardMapper.xml" />
+		<mapper resource="mappers/replyMapper.xml" />
 	</mappers>
 </configuration>

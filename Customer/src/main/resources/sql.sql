@@ -13,7 +13,8 @@ create table board
 );
 
 create squence board_seq
-[start with 1 increment by 1]
+start with 1
+increment by 1;
 
 create squence board_seq;
 
@@ -28,7 +29,19 @@ create table reply
 	references board(boardnum) on delete cascade
 );
 
-create squence reply_seq;
+create sequence reply_seq;
+drop sequence seq_bbs_no;
+
 
 select * from customer;
 select * from board;
+
+select list_first.*, rownum as rnum
+			from (
+					select *
+					from board
+					order by boardnum desc
+				) list_first;
+			where rnum <= 10;
+			
+select * from board where boardnum = 101;

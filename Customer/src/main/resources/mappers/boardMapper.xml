@@ -4,8 +4,80 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="global.sesoc.sebank.dao.BoardDAO">
-	<select id="list" resultType="Board">
-		select *, row_number 
-		from board
+	<select id="listBoard" resultType="Board" parameterType="map">
+		select * from
+		(
+		  select b.*, rownum as r from
+		  (
+		      select * from board
+				<if test="searchTitle != null and searchText != null">
+					<choose>
+						<when test="searchTitle.equalsIgnoreCase('title')">
+							where title like '%'||#{searchText}||'%'
+						</when>
+						<when test="searchTitle.equalsIgnoreCase('content')">
+							where content like '%'||#{searchText}||'%'
+						</when>
+						<when test="searchTitle.equalsIgnoreCase('custid')">
+							where custid like '%'||#{searchText}||'%'
+						</when>
+					</choose>
+				</if>
+		      order by boardnum desc
+		  ) b
+	  	  where rownum &lt;= #{end}
+		)
+		where r &gt; #{start}
 	</select>
+	<insert id="insertBoard" parameterType="Board">
+		insert into board
+			(boardnum, custid, title, content
+			<if test="originalfile != null and savedfile != null">
+			, originalfile, savedfile
+			</if>
+			)
+		values(
+			board_seq.nextval, #{custid}, #{title}, #{content}
+			<if test="originalfile != null and savedfile != null">
+			, #{originalfile}, #{savedfile}
+			</if>
+		)
+	</insert>
+	<select id="getBoard" resultType="Board" parameterType="Integer">
+		select * from board where boardnum = #{boardnum}
+	</select>
+	<update id="addHits" parameterType="Integer">
+		update board
+		set
+			hits = hits+1
+		where
+			boardnum = #{boardnum}
+	</update>
+	<select id="getCount" resultType="Integer" parameterType="map">
+		select count(*) from board
+		<if test="searchTitle != null and searchText != null">
+			<choose>
+				<when test="searchTitle.equalsIgnoreCase('title')">
+					where title like '%'||#{searchText}||'%'
+				</when>
+				<when test="searchTitle.equalsIgnoreCase('content')">
+					where content like '%'||#{searchText}||'%'
+				</when>
+				<when test="searchTitle.equalsIgnoreCase('custid')">
+					where custid like '%'||#{searchText}||'%'
+				</when>
+			</choose>
+		</if>
+	</select>
+	<update id="updateBoard" parameterType="Board">
+		update board
+		set
+			title = #{title}, content = #{content}, inputdate = sysdate
+		where
+			boardnum = #{boardnum}
+	</update>
+	<delete id="delelteBoard" parameterType="Integer">
+		delete board
+		where boardnum = #{boardnum}
+	</delete>
 </mapper>

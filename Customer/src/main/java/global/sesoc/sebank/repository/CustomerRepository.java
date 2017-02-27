@@ -16,32 +16,64 @@ public class CustomerRepository implements CustomerDAO {
 	@Override
 	public int insert(Customer customer) {
 		CustomerDAO dao = sqlSession.getMapper(CustomerDAO.class);
-		return dao.insert(customer);
+		int result = 0;
+		try {
+			result = dao.insert(customer);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
 	public String idCheck(String custid) {
 		CustomerDAO dao = sqlSession.getMapper(CustomerDAO.class);
-		return dao.idCheck(custid);
+		String result = null;
+		try {
+			result = dao.idCheck(custid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
 	public Customer login(Customer customer) {
 		CustomerDAO dao = sqlSession.getMapper(CustomerDAO.class);
-		return dao.login(customer);
+		Customer result = new Customer();
+		try {
+			result = dao.login(customer);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
 	public Customer updateSelect(String custid) {
 		CustomerDAO dao = sqlSession.getMapper(CustomerDAO.class);
-		Customer customer = dao.updateSelect(custid);
-		return customer;
+		Customer result = new Customer();
+		try {
+			result = dao.updateSelect(custid);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
 	public int update(Customer customer) {
 		CustomerDAO dao = sqlSession.getMapper(CustomerDAO.class);
-		return dao.update(customer);
+		int result = 0;
+		try {
+			result = dao.update(customer);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }

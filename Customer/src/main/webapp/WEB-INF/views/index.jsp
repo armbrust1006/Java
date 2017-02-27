@@ -38,7 +38,7 @@
 					<li><a href="customer/update">개인정보 수정</a></li>
 				</c:when>
 			</c:choose>
-			<li><a href="board/list">게시판</a></li>
+			<li><a href="board/boardList">게시판</a></li>
 		</ul>
 	</div>
 </body>

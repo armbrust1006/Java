@@ -2,29 +2,28 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-<mapper namespace="global.sesoc.sebank.dao.BankDAO">
-	<select id="findList" resultType="GuestBook">
-		select num, name, password, content, inputdate 
-		from guest_book 
-		order by inputdate desc
+
+<mapper namespace="global.sesoc.sebank.dao.ReplyDAO">
+	<select id="replyList" resultType="Reply" parameterType="Integer">
+		select * from reply
+		where boardnum = #{boardnum}
+		order by replynum desc
 	</select>
-	<select id="findOne" resultType="GuestBook">
-		select * from guest_book
-		where num=#{0} and password=#{1}
-	</select>
-	<insert id="insert" parameterType="GuestBook">
-		insert into guest_book
-		(num, name, password, content)
-		values(guest_book_seq.nextval, #{name}, #{password}, #{content})
+	<insert id="replyInsert" parameterType="Reply">
+		insert into reply
+			(replynum, boardnum, custid, text)
+		values
+			(reply_seq.nextval, #{boardnum}, #{custid}, #{text})
 	</insert>
-	<update id="update" parameterType="GuestBook">
-		update guest_book
-		set password=#{password}, content=#{content}, inputdate=sysdate
-		where num=#{num}
+	<update id="replyUpdate" parameterType="Reply">
+		update reply
+		set
+			text = #{text}
+		where
+			replynum = #{replynum}
 	</update>
-	<delete id="delete">
-		delete guest_book
-		where num=#{0} and password=#{1}
+	<delete id="replyDelete" parameterType="Integer">
+		delete reply
+		where replynum = #{replynum}
 	</delete>
 </mapper>

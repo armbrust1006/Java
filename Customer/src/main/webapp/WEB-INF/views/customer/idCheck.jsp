@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div>
-		<form action="idCheck" method="post" onsubmit="return idCheck()">
+		<form action="customer/idCheck" method="post" onsubmit="return idCheck()">
 			<input type="text" name="custid" id="custid" value="${id}"> <input
 				type="submit" value="ID 체크" placeholder="ID 입력">
 		</form>

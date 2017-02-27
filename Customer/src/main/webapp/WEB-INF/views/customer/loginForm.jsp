@@ -18,7 +18,7 @@
 		</script>
 	</c:if>
 	<div id="login">
-		<form action="login" method="post" onsubmit="return ">
+		<form action="login" method="post">
 			<table>
 				<tr>
 					<th>ID</th>

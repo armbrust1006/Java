@@ -1,5 +1,13 @@
 var idCheckWin;
 
+function pagingForSubmit(currentPage) {
+	var form = document.getElementById("pagingForm");
+	var page = document.getElementById("page");
+
+	page.value = currentPage;
+	form.submit();
+}
+
 function idCheckForm() {
 	idCheckWin = window.open("idCheck", "중복 검사",
 			"width=500, height=200, top=100, left=100");
@@ -20,9 +28,22 @@ function idCheck() {
 	return true;
 }
 
+function deleteCheck(boardnum) {
+	if (confirm("글 삭제?")) {
+		location.href = "boardDelete?boardnum=" + boardnum;
+	}
+}
+
+function replyCheck(replynum, boardnum) {
+	if (confirm("댓글 삭제?")) {
+		location.href = "replyDelete?replynum=" + replynum + "&boardnum="
+				+ boardnum;
+	}
+}
+
 function writeCheck() {
-	var title = document.getElementById("").value
-	var content = document.getElementById("").value
+	var title = document.getElementById("title").value
+	var content = document.getElementById("content").value
 
 	if (title == "") {
 		alert("제목 입력하세요!");

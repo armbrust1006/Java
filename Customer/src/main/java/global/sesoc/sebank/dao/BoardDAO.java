@@ -1,18 +1,26 @@
 package global.sesoc.sebank.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import global.sesoc.sebank.vo.Board;
 
 public interface BoardDAO {
 
-	public List<Board> list();
+	public List<Board> listBoard(Map<String, Object> search) throws Exception;
 
-	public int write(Board board);
+	public int insertBoard(Board board) throws Exception;
 
-	public Board read(int num);
+	public Board getBoard(int boardnum) throws Exception;
 
-	public Board update(int boardnum, String custid);
+	public int addHits(int boardnum) throws Exception;
 
-	public int delelte(int boardnum, String custid);
+	// select count(*) from board where title like '%'||#{searchText}||'%';
+	public int getCount(Map<String, Object> search) throws Exception;
+
+	public int updateBoard(Board board) throws Exception;
+
+	public int delelteBoard(int boardnum) throws Exception;
+
+	public Board boardDetail();
 }
