@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+.high-light-0 {
+	background: green;
+}
+
+.high-light-1 {
+	background: blue;
+}
+
+.high-light-2 {
+	background: red;
+}
+
+.high-light-3 {
+	background: magenta;
+}
+
+.high-light-4 {
+	background: pink;
+}
+</style>
+<script type="text/javascript" src="script/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+
+		/* $("h1").addClass("high-light"); */
+
+		$("h1").each(function(index, item) {
+			$(this).addClass("high-light-" + index);
+		});
+
+		/* $("img").attr({width:300 , height:200}); */ // 복수 속성 사용 가능
+		/* $("img").attr("width","300"); */ // 단일 속성 사용만 가능
+
+		/* $("img").attr("width", function() {
+			return (index + 1) * 100;
+		}); */
+
+		var colorset = [ "green", "blue", "red", "magenta", "pink" ];
+		/*
+		$("h1").css("color", function(index) {
+			return colorset[index];
+		});
+
+		var text = "<img src='img/img01.jpg'>";
+		$("#inner").html(text); */
+
+		/* $("img").css("width", 250);
+
+		// 이미지를 마지막으로 보낸다.
+		setInterval(function() {
+			$("img").first().appendTo("body");
+		}, 1000); */
+
+		// 작동 안됨 - 이미지 이동 같은거임
+		/* $("<h1></h1>").html("hello world").prepentTo("body");
+		setInterval(function() {
+			$("img").first().appendTo("#inner");
+		}, 1000); */
+
+		// 클릭 시 별 추가 H1 태그에
+		/* $("h1").on("click", function() {
+			$(this).html(function(index, item) {
+				return item + "*";
+			});
+		}); */
+
+		// 배경색 빼고 넣고 글자 빼고 넣고
+		var className = "";
+		$("h1").on({
+			"mouseenter" : function() {
+				$(this).html(function(index, item) {
+					return item + "*";
+				});
+				className = $(this).attr("class");
+				$(this).removeClass();
+			},
+			"mouseleave" : function() {
+				$(this).html(function(index, item) {
+					return item.substr(0, item.indexOf("*"));
+				});
+				$(this).addClass(className);
+			}
+		});
+
+	// 클릭하여 별 추가하고, 마지막 태그에 자동으로 별이 추가됨
+	/* $("h1").click(function() {
+		$(this).html(function(index, html) {
+			return html + "★";
+		});
+	});
+
+	setInterval(function() {
+		$("h1").last().trigger("click");
+	}, 1000); */
+	});
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="inner"></div>
+
+	<h1>item-0</h1>
+	<h1>item-1</h1>
+	<h1>item-2</h1>
+	<h1>item-3</h1>
+	<h1>item-4</h1>
+	<img src="img/img01.jpg">
+	<img src="img/img02.jpg">
+	<img src="img/img03.jpg">
+</body>
+</html>

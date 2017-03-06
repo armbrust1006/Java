@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+#test {
+	position: absolute; /* 궁중 부양 시킨다 */
+	display: inline-block;
+	background: yellow;
+	width: 100px;
+	left: 300px;
+	top: 300px;
+}
+</style>
+<script type="text/javascript">
+	var x = 10;
+	var mover;
+
+	// 문서 전체(/html)의 로딩이 끝나고 실행되는 구문
+	window.onload = function() {
+		mover = document.getElementById("test");
+		mover.style.left = x + 'px';
+		
+		if(document.getElementById("test").width)
+		mover.style.left = setInterval(function() {
+			x += 10;
+			mover.style.left = x + 'px';
+		}, 10);
+
+		document.getElementById("validate").onclick = vali;
+	// document.getElementById("move").onclick = moving;
+	};
+
+	function vali() {
+		var jumin = document.getElementById("jumin").value;
+		var sex = jumin.substr(6, 1);
+
+		if (sex < 1 || sex > 4 || jumin.length != 13 || isNaN(jumin)) {
+			alert('주민번호 제대로 입력하시오');
+			jumin.select(); // 드래그 선택
+			jumin.focus(); // 포인터 표시
+			return;
+		} else {
+			if (sex == 1 || sex == 3) {
+				sex = "남성";
+			} else {
+				sex = "여성";
+			}
+			alert(jumin.substr(0, 2) + "년 " + jumin.substr(2, 2) + "월 " + jumin.substr(4, 2) + "일생 " + sex + " 입니다");
+		}
+	}
+
+	function moving() {
+		x += 10;
+		mover.style.left = x + 'px';
+	}
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="test">32기 A반</div>
+	<input type="text" id="jumin" placeholder="주민번호를 입력하세요">
+	<input type="button" value="검증" id="validate">
+	<br>
+	<input type="button" value="움직여" id="move">
+</body>
+</html>

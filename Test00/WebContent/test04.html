@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+/* div {
+	color: red;
+} */
+</style>
+<script type="text/javascript" src="script/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+	$(function() {
+		var arry=[{name:"Hanbit Media", link:"http://hanb.co.kr"},
+			{name:"Naver", link:"http://naver.com"},
+			{name:"Daum", link:"http://daum.net"},
+			{name:"Paran", link:"http://paran.com"}];
+		
+		$(arry).each(function(index, item){
+			var output = "";
+			output += "<a href="+item.link+">";
+			output += "<h1>"+item.name+"</h1>";
+			output += "</a>";
+			
+			document.body.innerHTML += output;
+		});
+	});
+	/* $(document).ready(function() {
+		$("tr:eq(0)").css('background-color', '#00ffff');
+		$("td:nth-child(3n+1)").css('background-color', '#000fff');
+		$("td:nth-child(3n+2)").css('background-color', '#f000ff');
+		$("td:nth-child(3n+3)").css('background-color', '#00ff0f');
+
+		alert($("input[type='text']").val());
+		$("input[name='name']").val("바보");
+	}); */
+	/* var total = 0;
+
+	$(document).ready(function() {
+		$("input[type='button']").click(function() {
+			var coffeVal = $("input[name='coffe']");
+			var lunchboxVal = $("input[name='lunchbox']");
+			if ($.isNumeric(coffeVal.val()) && $.isNumeric(lunchboxVal.val())) {
+				total = parseInt(coffeVal.val()) + parseInt(lunchboxVal.val());
+				$("input[name='total']").val(total);
+			} else {
+				alert("제대로 입력해라잉!");
+				coffeVal.val("");
+				lunchboxVal.val("");
+				$("input[name='total']").val("");
+				coffeVal.focus();
+			}
+		});
+	}); */
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="main">
+		<table border="1">
+			<tr>
+				<th>교시</th>
+				<th>과목</th>
+				<th>시간</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>일본어</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>IT</td>
+				<td>11</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>자습</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>자습</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>자습</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>자습</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>자습</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>자습</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>자습</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>자습</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>자습</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>12</td>
+				<td>자습</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>13</td>
+				<td>자습</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>14</td>
+				<td>자습</td>
+				<td>12</td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<table>
+			<tr>
+				<th>커피</th>
+				<td><input type="text" name="coffe"></td>
+			</tr>
+			<tr>
+				<th>도시락</th>
+				<td><input type="text" name="lunchbox"> <input
+					type="button" name="lbutton" value="입력"></td>
+			</tr>
+			<tr>
+				<th>합계</th>
+				<td><input type="text" name="total" readonly></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

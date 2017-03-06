@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 변수 선언
+	var shape = "Circle";
+	var age = 22;
+	//var age = "twenty two";
+	var dontExist;
+	var func = new Function("5+2");
+
+	// 변수의 타입 출력
+	document.write(typeof shape + "<br>");
+	document.write(typeof age + "<br>");
+	document.write(typeof (10 > 20) + "<br>");
+	document.write(typeof {} + "<br>");
+	document.write(typeof [] + "<br>");
+	document.write(typeof new Date() + "<br>");
+	document.write(typeof dontExist + "<br>");
+	document.write(typeof func + "<br>");
+
+	//json
+	/* {"name":"kildong", "age":"16"} */
+
+	document.write('52' * 273 + "<br>");
+	document.write(52 * '273' + "<br>");
+	document.write('52' * '273' + "<br>");
+
+	document.write((1 == 1) + "<br>"); // true
+	document.write(('1' == 1) + "<br>"); // true
+	document.write(('1' === 1) + "<br>"); // false : type, value 둘 다 같아야 true
+
+	document.write((true == 1) + "<br>"); // true
+	document.write((true === 1) + "<br>"); // false
+
+	var arr = [ 'Kildong', 10, true, [ 1, 2, 4 ], new Date(), {
+		"age" : "30"
+	} ];
+
+	document.write(arr[0] + "<br>");
+	document.write(arr[1] + "<br>");
+	document.write(arr[2] + "<br>");
+	document.write(arr[3][0] + "<br>");
+	document.write(arr[3][1] + "<br>");
+	document.write(arr[3][2] + "<br>");
+	document.write(arr[4] + "<br>");
+	document.write(arr[5] + "<br>");
+	document.write(arr[5].age + "<br>");
+
+	var arr1 = {
+		"name" : "Hong",
+		"age" : "30",
+		"address" : "Seoul"
+	};
+
+	document.write(typeof arr1 + "<br>");
+	document.write(arr1.name + "<br>");
+	document.write(arr1.age + "<br>");
+	document.write(arr1.address + "<br>");
+
+	var arr2 = [ 1, 2, 3, 4, 5, 6 ];
+
+	for (var i = 0; i < arr2.length; i++) {
+		document.write(arr2[i] + "<br>");
+	}
+	for (var j in arr2) {
+		document.write(arr2[j] + "<br>");
+	}
+	
+	var b = 10;
+	b = b+1;
+	document.write(b + "<br>");
+	b = ++b;
+	document.write(b+ "<br>");
+	b = b++;
+	document.write(b+ "<br>");
+	
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="script/jquery-3.1.1.min.js"></script>
+<script>
+	$(function() {
+		/* $("p").hide();
+		$("a").click(function(event) {
+			event.preventDefault();
+			$(this).hide();
+		});*/
+
+		/* $("p").hide();
+		$("a").click(function(event) {
+			event.preventDefault();
+			$("#ss").hide(2000, function() {
+				alert("사라졌음");
+			});
+		}); */
+		
+		$("#hide").click(function(event) {
+			$("#ss").hide(2000, function() {
+				alert("사라졌음");
+			});
+		});
+		
+		$("#show").click(function(event){
+			$("#ss").show(2000, function(){
+				alert("나타났음");
+			});
+		});
+	});
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+	<a href="#">Click to hide me too</a>
+	<img alt="" src="img/img01.jpg" id="ss">
+	
+	<input type="button" id="hide" value="사라져!">
+	<input type="button" id="show" value="나타나!">
+
+
+</body>
+</html>

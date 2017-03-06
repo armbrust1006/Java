@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function callTenTimes(callback) {
+		for (var i=0;i<10;i++){
+			callback();
+		}
+	}
+	var callback=function(){
+		alert('ggg');
+	}
+	callTenTimes(callback);
+
+
+	/* var a = yourFunc();
+	alert("First : " + a);
+
+	// 선언적 함수
+	function myFunc() {
+		var v1 = 10;
+		var v2 = 22;
+		return v1 + v2;
+	}
+
+	// 표현적 함수
+	var yourFunc = function() {
+		var v1 = 34;
+		var v2 = 11;
+		return v1 + v2;
+	};
+
+	var a = yourFunc();
+	alert("Second : " + a); */
+</script>
+</head>
+<body>
+
+</body>
+</html>
