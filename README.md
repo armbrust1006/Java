@@ -1,1 +1,1 @@
-# Benkyo
+# Solo Study
